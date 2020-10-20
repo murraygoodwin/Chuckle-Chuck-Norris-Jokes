@@ -7,13 +7,20 @@
 
 import Foundation
 
-struct ViewModel {
+protocol ViewModelDelegate: AnyObject {
+  func didRetrieveUpdatedJokes()
+}
+
+class ViewModel {
   
-  static let shared = ViewModel(jokesList: [])
+  static let shared = ViewModel()
   
-  var jokesList: [String] {
+  // weak var ?
+  var delegate: ViewModelDelegate?
+  
+  var jokesList: [String]? {
     didSet {
-      print("Got some new jokes.")
+      delegate?.didRetrieveUpdatedJokes()
     }
   }
 }

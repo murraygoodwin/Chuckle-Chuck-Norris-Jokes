@@ -17,11 +17,10 @@ struct JSONParser {
     
     for joke in 0..<json.count {
       if let jokeText = json["value"][joke]["joke"].string {
-        debugPrint(jokeText)
         jokesList.append(jokeText)
       }
     }
-    var viewModel = ViewModel.shared
+    let viewModel = ViewModel.shared
     viewModel.jokesList = jokesList
   }
 }

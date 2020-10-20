@@ -7,19 +7,25 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-  
+class ViewController: UIViewController, ViewModelDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let apiEngine = APIEngine()
+    let viewModel = ViewModel.shared
+    viewModel.delegate = self
     
+    let apiEngine = APIEngine()
     apiEngine.downloadJokesAsJSON(numberOfJokes: 2)
-      
+    
   }
-
-
+  
+  func didRetrieveUpdatedJokes() {
+    updateUI()
+  }
+  
+  func updateUI() {
+    print("EVERYTHING WORKED!")
+  }
 }
 
