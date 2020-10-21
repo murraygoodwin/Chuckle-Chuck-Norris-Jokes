@@ -16,7 +16,7 @@ class ViewController: UIViewController, ViewModelDelegate {
     viewModel.delegate = self
     
     let apiEngine = APIEngine()
-    apiEngine.downloadJokesAsJSON(numberOfJokes: 2)
+    apiEngine.downloadJokesAsJSON(numberOfJokes: 2, excludeExplicitJokes: true)
     
   }
   
