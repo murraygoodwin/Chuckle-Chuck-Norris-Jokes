@@ -18,30 +18,46 @@ class ViewController: UIViewController {
   let viewModel = ViewModel.shared
   
   var excludeExplicitJokes = true
-  var numberOfJokesToRetrieve = 5
+  var numberOfJokesToRetrieve = 10
+  
+  let cardInsets: CGFloat = 60.0
+  var cardWidth: CGFloat {
+    get { self.mainBody.frame.size.width - cardInsets
+    }
+  }
+  
+  enum ViewState {
+    case initialLoad
+    case afterUpdate
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     viewModel.delegate = self
     collectionView.dataSource = self
     collectionView.delegate = self
-    
-    excludeExplicitJokes = excludeExplicitJokesSwitch.isOn ? true : false
-    numberOfJokesToRetrieve = Int(numberOfJokesSlider.value)
-    numberOfJokesSlider.value = Float(numberOfJokesToRetrieve)
-    updateNumberOfJokesLabelText()
-    
-    navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Bangers-Regular", size: 34)!, NSAttributedString.Key.foregroundColor: UIColor(named: "Colour4") ?? .white]
+    updateUI(for: .initialLoad)
+    }
   
+  // MARK: - UI Updates
+  func updateUI(for mode: ViewState) {
+    switch mode {
+    case .initialLoad:
+      excludeExplicitJokes = excludeExplicitJokesSwitch.isOn ? true : false
+      numberOfJokesSlider.value = Float(numberOfJokesToRetrieve)
+      updateNumberOfJokesLabelText()
+      
+      navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Bangers-Regular", size: 34)!, NSAttributedString.Key.foregroundColor: UIColor(named: "Colour4") ?? .white]
+      
+    case .afterUpdate:
+      collectionView.reloadData()
+    }
   }
-   
+  
   func updateNumberOfJokesLabelText() {
-    switch numberOfJokesToRetrieve {
-    case 1:
-      numberOfJokesLabel.text = "Get \(numberOfJokesToRetrieve) joke"
-    default:
-      numberOfJokesLabel.text = "Get \(numberOfJokesToRetrieve) jokes"
+    numberOfJokesLabel.text = "Get \(numberOfJokesToRetrieve) joke"
+    if numberOfJokesToRetrieve > 1 {
+      numberOfJokesLabel.text = numberOfJokesLabel.text! + "s"
     }
   }
   
@@ -63,19 +79,19 @@ class ViewController: UIViewController {
   }
 }
 
-// MARK: - ViewModel Delegate
+// MARK: - New Jokes Received
 extension ViewController: ViewModelDelegate {
-  
   func didRetrieveUpdatedJokes() {
     SoundEngine.shared.playSound(sound: "Chop")
-    collectionView.reloadData()    
+    updateUI(for: .afterUpdate)
   }
 }
 
 // MARK: - CollectionView Delegate
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
   
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  func collectionView(_ collectionView: UICollectionView,
+                      numberOfItemsInSection section: Int) -> Int {
     if viewModel.jokesList != nil {
       return viewModel.jokesList!.count
     } else {
@@ -83,7 +99,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
     }
   }
   
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+  func collectionView(_ collectionView: UICollectionView,
+                      cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "jokeCell", for: indexPath) as! JokeCollectionViewCell
         
@@ -103,34 +120,12 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     
-    let scaleFactor: CGFloat = 0.8
-    
-    let screenWidth =
-      self.mainBody.frame.size.width * scaleFactor
-    let screenHeight = self.mainBody.frame.size.height * scaleFactor
-    
-          return CGSize(width: screenWidth, height: screenHeight)
-      }
+    let cardHeight = self.mainBody.frame.size.height - 100.0
+    return CGSize(width: cardWidth, height: cardHeight)
+  }
   
-//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//    let cellCount: Int?
-//
-//    if viewModel.jokesList != nil {
-//      cellCount = viewModel.jokesList!.count
-//    } else {
-//      cellCount = 1
-//    }
-//
-//    let cellSpacing = 20
-//    let cellWidth = 200
-//
-//      let totalCellWidth = cellWidth * cellCount!
-//      let totalSpacingWidth = cellSpacing * (cellCount! - 1)
-//
-//      let leftInset = (self.mainBody.frame.size.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
-//      let rightInset = leftInset
-//
-//      return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
-//  }
-  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+
+      return UIEdgeInsets(top: 0, left: cardInsets / 2, bottom: 0, right: cardInsets / 2)
+  }
 }
