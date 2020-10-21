@@ -11,15 +11,21 @@ import SwiftyJSON
 struct JSONParser {
   
   func parseJSON(data: Data) {
-  let json = JSON(data)
-    
+ 
+    let json = JSON(data)
     var jokesList: [String] = []
-    
-    for joke in 0..<json.count {
+     
+    for joke in 0..<json["value"].count {
+            
       if let jokeText = json["value"][joke]["joke"].string {
         jokesList.append(jokeText)
       }
     }
+    
+    guard jokesList.count > 0 else {
+      fatalError("No valid joke text was found in the data returned.")
+    }
+    
     let viewModel = ViewModel.shared
     viewModel.jokesList = jokesList
   }

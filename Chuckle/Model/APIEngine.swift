@@ -15,7 +15,7 @@ struct APIEngine {
     guard numberOfJokes > 0 else {
       fatalError("Zero jokes were requested for download.")
     }
-        
+    
     let baseURL = "https://api.icndb.com/jokes/random/"
     var urlString = baseURL + String(numberOfJokes)
     
@@ -26,17 +26,19 @@ struct APIEngine {
     AF.request(urlString).validate().responseJSON(completionHandler: { (response) in
       
       switch response.result {
-      case .success:
-        let jsonParser = JSONParser()
-        if let data = response.data {
-          jsonParser.parseJSON(data: data)
-        }
-        
       case .failure:
         if let error = response.error {
           
           //TODO: Improve handling of this error (e.g. more user-friendly error messaging).
-        fatalError("\(error.localizedDescription)")
+          fatalError("\(error.localizedDescription)")
+        }
+        
+      case .success:
+        let jsonParser = JSONParser()
+        if let data = response.data {
+          jsonParser.parseJSON(data: data)
+        } else {
+          fatalError("The HTTP request was successful, but no data was returned.")
         }
       }
     })
