@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftyJSON
+import HTMLString
 
 struct JSONParser {
   
@@ -18,7 +19,7 @@ struct JSONParser {
     for joke in 0..<json["value"].count {
             
       if let jokeText = json["value"][joke]["joke"].string {
-        jokesList.append(jokeText)
+        jokesList.append(jokeText.removingHTMLEntities())
       }
     }
     

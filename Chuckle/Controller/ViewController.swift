@@ -32,15 +32,16 @@ class ViewController: UIViewController {
     numberOfJokesSlider.value = Float(numberOfJokesToRetrieve)
     updateNumberOfJokesLabelText()
     
+    navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Bangers-Regular", size: 34)!, NSAttributedString.Key.foregroundColor: UIColor(named: "Colour4") ?? .white]
   
   }
    
   func updateNumberOfJokesLabelText() {
     switch numberOfJokesToRetrieve {
     case 1:
-      numberOfJokesLabel.text = "Get \(numberOfJokesToRetrieve) joke."
+      numberOfJokesLabel.text = "Get \(numberOfJokesToRetrieve) joke"
     default:
-      numberOfJokesLabel.text = "Get \(numberOfJokesToRetrieve) jokes."
+      numberOfJokesLabel.text = "Get \(numberOfJokesToRetrieve) jokes"
     }
   }
   
@@ -66,6 +67,7 @@ class ViewController: UIViewController {
 extension ViewController: ViewModelDelegate {
   
   func didRetrieveUpdatedJokes() {
+    SoundEngine.shared.playSound(sound: "Chop")
     collectionView.reloadData()    
   }
 }
@@ -112,16 +114,16 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
   
 //  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 //    let cellCount: Int?
-//    
+//
 //    if viewModel.jokesList != nil {
 //      cellCount = viewModel.jokesList!.count
 //    } else {
 //      cellCount = 1
 //    }
-//    
+//
 //    let cellSpacing = 20
 //    let cellWidth = 200
-//    
+//
 //      let totalCellWidth = cellWidth * cellCount!
 //      let totalSpacingWidth = cellSpacing * (cellCount! - 1)
 //
