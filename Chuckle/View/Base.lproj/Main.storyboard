@@ -61,7 +61,7 @@
                                                             <color key="backgroundColor" name="Colour1"/>
                                                             <constraints>
                                                                 <constraint firstItem="TvO-LA-gSz" firstAttribute="top" secondItem="EeC-dK-Gxo" secondAttribute="top" constant="20" id="2Su-n7-0rZ"/>
-                                                                <constraint firstAttribute="trailing" secondItem="TvO-LA-gSz" secondAttribute="trailing" constant="20" id="AFP-Ta-hqS"/>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TvO-LA-gSz" secondAttribute="trailing" id="AFP-Ta-hqS"/>
                                                                 <constraint firstItem="TvO-LA-gSz" firstAttribute="centerX" secondItem="EeC-dK-Gxo" secondAttribute="centerX" id="Xnc-dp-vaA"/>
                                                                 <constraint firstAttribute="bottom" secondItem="TvO-LA-gSz" secondAttribute="bottom" constant="20" id="mo6-69-TJg"/>
                                                                 <constraint firstItem="TvO-LA-gSz" firstAttribute="centerY" secondItem="EeC-dK-Gxo" secondAttribute="centerY" id="qKk-yi-azr"/>
@@ -101,95 +101,86 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ix0-8U-QFz" userLabel="Controls">
                                 <rect key="frame" x="0.0" y="619" width="414" height="189"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="3Fa-XW-TCO">
-                                        <rect key="frame" x="20" y="20" width="374" height="135"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7p-gn-nAT" userLabel="Number of Jokes Control">
+                                        <rect key="frame" x="20" y="20" width="127" height="149"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7p-gn-nAT">
-                                                <rect key="frame" x="0.0" y="0.0" width="124" height="135"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Get 99 jokes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDX-3s-Y1h">
-                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="21.5"/>
-                                                        <fontDescription key="fontDescription" name="Bangers-Regular" family="Bangers" pointSize="20"/>
-                                                        <color key="textColor" name="Colour4"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="PoE-gV-xcI">
-                                                        <rect key="frame" x="-2" y="105" width="128" height="31"/>
-                                                        <color key="tintColor" name="Colour2"/>
-                                                        <connections>
-                                                            <action selector="numberOfJokesSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="0a8-yH-lO0"/>
-                                                        </connections>
-                                                    </slider>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="PoE-gV-xcI" firstAttribute="bottom" secondItem="e7p-gn-nAT" secondAttribute="bottom" id="4M7-Vj-pI9"/>
-                                                    <constraint firstItem="xDX-3s-Y1h" firstAttribute="top" secondItem="e7p-gn-nAT" secondAttribute="top" id="A0N-sW-LOB"/>
-                                                    <constraint firstAttribute="trailing" secondItem="xDX-3s-Y1h" secondAttribute="trailing" id="CgT-v8-nJb"/>
-                                                    <constraint firstItem="PoE-gV-xcI" firstAttribute="leading" secondItem="e7p-gn-nAT" secondAttribute="leading" id="UFR-W4-Onm"/>
-                                                    <constraint firstItem="xDX-3s-Y1h" firstAttribute="leading" secondItem="e7p-gn-nAT" secondAttribute="leading" id="XyK-br-wFd"/>
-                                                    <constraint firstAttribute="trailing" secondItem="PoE-gV-xcI" secondAttribute="trailing" id="wgC-uX-Mly"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZDy-rk-d81">
-                                                <rect key="frame" x="150" y="0.0" width="123" height="135"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep it clean" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60q-ci-4Wb">
-                                                        <rect key="frame" x="9.5" y="0.0" width="104" height="20.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="20.5" id="kPp-Nx-icr"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="Bangers-Regular" family="Bangers" pointSize="21"/>
-                                                        <color key="textColor" name="Colour4"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7nk-cW-9FF">
-                                                        <rect key="frame" x="37" y="104" width="51" height="31"/>
-                                                        <color key="onTintColor" name="Colour2"/>
-                                                        <connections>
-                                                            <action selector="explicitJokesSwitchIsChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="NNh-1c-fS4"/>
-                                                        </connections>
-                                                    </switch>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="60q-ci-4Wb" firstAttribute="centerX" secondItem="ZDy-rk-d81" secondAttribute="centerX" id="ZJw-dG-EE7"/>
-                                                    <constraint firstItem="7nk-cW-9FF" firstAttribute="centerX" secondItem="ZDy-rk-d81" secondAttribute="centerX" id="ddx-Gp-UWX"/>
-                                                    <constraint firstItem="60q-ci-4Wb" firstAttribute="top" secondItem="ZDy-rk-d81" secondAttribute="top" id="gNQ-c4-M41"/>
-                                                    <constraint firstAttribute="bottom" secondItem="7nk-cW-9FF" secondAttribute="bottom" id="gRf-Oc-plr"/>
-                                                    <constraint firstItem="60q-ci-4Wb" firstAttribute="leading" secondItem="ZDy-rk-d81" secondAttribute="leading" constant="9.5" id="rK5-9C-smx"/>
-                                                </constraints>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yS-bB-t7k">
-                                                <rect key="frame" x="299" y="0.0" width="75" height="135"/>
-                                                <color key="backgroundColor" name="Colour2"/>
-                                                <fontDescription key="fontDescription" name="Bangers-Regular" family="Bangers" pointSize="25"/>
-                                                <state key="normal" title="Hit Me">
-                                                    <color key="titleColor" name="Colour4"/>
-                                                </state>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Get 99 jokes" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDX-3s-Y1h">
+                                                <rect key="frame" x="18" y="0.0" width="91.5" height="21.5"/>
+                                                <fontDescription key="fontDescription" name="Bangers-Regular" family="Bangers" pointSize="20"/>
+                                                <color key="textColor" name="Colour4"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="PoE-gV-xcI">
+                                                <rect key="frame" x="-2" y="119" width="131" height="31"/>
+                                                <color key="tintColor" name="Colour2"/>
                                                 <connections>
-                                                    <action selector="hitMeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lso-wR-VIQ"/>
+                                                    <action selector="numberOfJokesSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="0a8-yH-lO0"/>
                                                 </connections>
-                                            </button>
+                                            </slider>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="ZDy-rk-d81" secondAttribute="bottom" id="7Nj-ap-Bb8"/>
-                                            <constraint firstItem="ZDy-rk-d81" firstAttribute="top" secondItem="3Fa-XW-TCO" secondAttribute="top" id="8C9-vq-OGY"/>
-                                            <constraint firstItem="4yS-bB-t7k" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ZDy-rk-d81" secondAttribute="trailing" id="CQo-6J-UbV"/>
-                                            <constraint firstItem="4yS-bB-t7k" firstAttribute="centerY" secondItem="3Fa-XW-TCO" secondAttribute="centerY" id="VkO-mo-huw"/>
-                                            <constraint firstItem="4yS-bB-t7k" firstAttribute="width" secondItem="3Fa-XW-TCO" secondAttribute="width" multiplier="0.2" id="VtR-v2-rGe"/>
-                                            <constraint firstItem="ZDy-rk-d81" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e7p-gn-nAT" secondAttribute="trailing" id="gHR-0d-ZHg"/>
-                                            <constraint firstItem="e7p-gn-nAT" firstAttribute="top" secondItem="3Fa-XW-TCO" secondAttribute="top" id="lgB-54-TZQ"/>
+                                            <constraint firstItem="PoE-gV-xcI" firstAttribute="bottom" secondItem="e7p-gn-nAT" secondAttribute="bottom" id="4M7-Vj-pI9"/>
+                                            <constraint firstItem="PoE-gV-xcI" firstAttribute="centerX" secondItem="e7p-gn-nAT" secondAttribute="centerX" id="FdY-te-LmK"/>
+                                            <constraint firstItem="xDX-3s-Y1h" firstAttribute="top" secondItem="e7p-gn-nAT" secondAttribute="top" id="HbT-dk-xFt"/>
+                                            <constraint firstItem="PoE-gV-xcI" firstAttribute="leading" secondItem="e7p-gn-nAT" secondAttribute="leading" id="UFR-W4-Onm"/>
+                                            <constraint firstItem="xDX-3s-Y1h" firstAttribute="centerX" secondItem="e7p-gn-nAT" secondAttribute="centerX" id="hnB-8X-Gru"/>
+                                            <constraint firstAttribute="trailing" secondItem="PoE-gV-xcI" secondAttribute="trailing" id="wgC-uX-Mly"/>
                                         </constraints>
-                                    </stackView>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZDy-rk-d81" userLabel="Explicit Jokes Control">
+                                        <rect key="frame" x="167" y="20" width="103.5" height="149"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep it clean" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60q-ci-4Wb">
+                                                <rect key="frame" x="5.5" y="0.0" width="93" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="Bangers-Regular" family="Bangers" pointSize="21"/>
+                                                <color key="textColor" name="Colour4"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7nk-cW-9FF">
+                                                <rect key="frame" x="27.5" y="118" width="51" height="31"/>
+                                                <color key="onTintColor" name="Colour2"/>
+                                                <connections>
+                                                    <action selector="explicitJokesSwitchIsChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="NNh-1c-fS4"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="7nk-cW-9FF" secondAttribute="bottom" id="Lls-BP-fuq"/>
+                                            <constraint firstItem="60q-ci-4Wb" firstAttribute="centerX" secondItem="ZDy-rk-d81" secondAttribute="centerX" id="Wrc-fN-j3Q"/>
+                                            <constraint firstItem="60q-ci-4Wb" firstAttribute="top" secondItem="ZDy-rk-d81" secondAttribute="top" id="eqb-PH-410"/>
+                                            <constraint firstItem="7nk-cW-9FF" firstAttribute="centerX" secondItem="ZDy-rk-d81" secondAttribute="centerX" id="wNO-sN-68r"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yS-bB-t7k">
+                                        <rect key="frame" x="290.5" y="43" width="103.5" height="103.5"/>
+                                        <color key="backgroundColor" name="Colour2"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="4yS-bB-t7k" secondAttribute="height" multiplier="1:1" id="ACx-Ok-xFG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Bangers-Regular" family="Bangers" pointSize="25"/>
+                                        <state key="normal" title="Hit Me">
+                                            <color key="titleColor" name="Colour4"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="hitMeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lso-wR-VIQ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="Colour3"/>
                                 <constraints>
-                                    <constraint firstItem="3Fa-XW-TCO" firstAttribute="bottom" secondItem="ix0-8U-QFz" secondAttribute="bottom" constant="-34" id="Gkb-oF-yPH"/>
-                                    <constraint firstItem="3Fa-XW-TCO" firstAttribute="leading" secondItem="ix0-8U-QFz" secondAttribute="leading" constant="20" id="MLH-QL-uyJ"/>
-                                    <constraint firstItem="e7p-gn-nAT" firstAttribute="width" secondItem="ix0-8U-QFz" secondAttribute="width" multiplier="0.3" id="P9Y-r8-oKR"/>
-                                    <constraint firstAttribute="trailing" secondItem="3Fa-XW-TCO" secondAttribute="trailing" constant="20" id="jPG-5H-Qqo"/>
-                                    <constraint firstItem="3Fa-XW-TCO" firstAttribute="top" secondItem="ix0-8U-QFz" secondAttribute="top" constant="20" id="sx4-dr-3BZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="4yS-bB-t7k" secondAttribute="trailing" constant="20" id="6SL-zA-ZWA"/>
+                                    <constraint firstItem="4yS-bB-t7k" firstAttribute="leading" secondItem="ZDy-rk-d81" secondAttribute="trailing" constant="20" id="7oj-ZW-Zuc"/>
+                                    <constraint firstItem="e7p-gn-nAT" firstAttribute="top" secondItem="ix0-8U-QFz" secondAttribute="top" constant="20" id="GMe-yv-Tni"/>
+                                    <constraint firstItem="ZDy-rk-d81" firstAttribute="leading" secondItem="e7p-gn-nAT" secondAttribute="trailing" constant="20" id="GNE-kz-CBj"/>
+                                    <constraint firstItem="4yS-bB-t7k" firstAttribute="width" secondItem="ix0-8U-QFz" secondAttribute="width" multiplier="0.25" id="Q0X-OG-QMe"/>
+                                    <constraint firstItem="4yS-bB-t7k" firstAttribute="centerY" secondItem="ix0-8U-QFz" secondAttribute="centerY" id="Rh7-S4-8Ga"/>
+                                    <constraint firstItem="ZDy-rk-d81" firstAttribute="top" secondItem="ix0-8U-QFz" secondAttribute="top" constant="20" id="ee8-pQ-cE7"/>
+                                    <constraint firstAttribute="bottom" secondItem="e7p-gn-nAT" secondAttribute="bottom" constant="20" id="gZc-aW-GBL"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZDy-rk-d81" secondAttribute="bottom" constant="20" id="pGq-Db-S4S"/>
+                                    <constraint firstItem="ZDy-rk-d81" firstAttribute="width" secondItem="ix0-8U-QFz" secondAttribute="width" multiplier="0.25" id="t25-BR-Vb7"/>
+                                    <constraint firstItem="e7p-gn-nAT" firstAttribute="leading" secondItem="ix0-8U-QFz" secondAttribute="leading" constant="20" id="vg6-9r-rXo"/>
                                 </constraints>
                             </view>
                         </subviews>
