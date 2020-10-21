@@ -17,7 +17,7 @@ struct APIEngine {
     }
     
     let baseURL = "https://api.icndb.com/jokes/random/"
-    var urlString = baseURL + String(numberOfJokes)
+    var urlString = baseURL + String(numberOfJokes) + "?escape=javascript"
     
     if excludeExplicitJokes {
       urlString = urlString + "?exclude=[explicit]"
