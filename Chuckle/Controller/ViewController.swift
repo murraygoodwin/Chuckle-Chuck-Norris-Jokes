@@ -70,7 +70,7 @@ final class ViewController: UIViewController {
                                   excludeExplicitJokes: excludeExplicitJokes) { (data) in
       let jsonParser = JSONParser()
       if let data = data {
-      jsonParser.parseJSON(data: data)
+        self.viewModel.jokesList = jsonParser.parseJSON(data: data)
       } else {
         fatalError("The HTTP request was successful, but no data was returned.")
       }

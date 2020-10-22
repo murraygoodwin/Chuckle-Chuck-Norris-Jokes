@@ -11,7 +11,7 @@ import HTMLString
 
 struct JSONParser {
   
-  func parseJSON(data: Data) {
+  func parseJSON(data: Data) -> [String] {
  
     let json = JSON(data)
     var jokesList: [String] = []
@@ -27,7 +27,6 @@ struct JSONParser {
       fatalError("No valid joke text was found in the data returned.")
     }
     
-    let viewModel = ViewModel.shared
-    viewModel.jokesList = jokesList
+    return jokesList
   }
 }
