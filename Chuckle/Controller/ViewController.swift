@@ -19,7 +19,7 @@ final class ViewController: UIViewController {
   let viewModel = ViewModel.shared
   
   var excludeExplicitJokes = true
-  var numberOfJokesToRetrieve = 3
+  var numberOfJokesToRetrieve = 10
   
   let cardInsets: CGFloat = 60.0
   var cardWidth: CGFloat {
