@@ -26,7 +26,7 @@ final class ViewController: UIViewController {
     get { self.mainBody.frame.size.width - cardInsets
     }
   }
-  
+
   enum ViewState {
     case initialLoad
     case afterUpdate
@@ -66,6 +66,7 @@ final class ViewController: UIViewController {
       
     case .afterUpdate:
       collectionView.reloadData()
+      collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .centeredHorizontally, animated: true)
     }
   }
   
@@ -132,6 +133,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
     } else {
       cell.jokeLabel.text = "Chuck Norris is always ready..."
     }
+    
+    //TODO: I'd like to incorporate dynamic resizing for the font for extra long jokes. For now, I've just set the font size to be quite small, but I would prefer them to all scale individually.
     
     cell.layer.cornerRadius = 20.0
     

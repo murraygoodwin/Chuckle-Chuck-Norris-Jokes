@@ -22,7 +22,7 @@ struct APIEngine {
     if excludeExplicitJokes {
       urlString = urlString + "?exclude=[explicit]"
     }
-    
+      
     var returnedData: Data?
     
     AF.request(urlString).validate().responseJSON { (response) in

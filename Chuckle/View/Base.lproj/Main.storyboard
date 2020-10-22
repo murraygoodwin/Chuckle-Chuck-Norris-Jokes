@@ -22,17 +22,17 @@
             <objects>
                 <viewController title="Main View Controller" id="BYZ-38-t0r" customClass="ViewController" customModule="Chuckle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ic0-VE-rPS" userLabel="Main Body">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="619"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="658"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="vx3-kD-fzJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="619"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="658"/>
                                     </imageView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BHS-d3-wjv">
-                                        <rect key="frame" x="0.0" y="20" width="414" height="579"/>
+                                        <rect key="frame" x="0.0" y="20" width="414" height="618"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hoV-3h-zpq">
                                             <size key="itemSize" width="128" height="128"/>
@@ -53,7 +53,7 @@
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chuck Norris is always ready..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="TvO-LA-gSz">
                                                                     <rect key="frame" x="20" y="20" width="88" height="88"/>
-                                                                    <fontDescription key="fontDescription" name="PermanentMarker-Regular" family="Permanent Marker" pointSize="30"/>
+                                                                    <fontDescription key="fontDescription" name="PermanentMarker-Regular" family="Permanent Marker" pointSize="22"/>
                                                                     <color key="textColor" name="Colour4"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -99,19 +99,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ix0-8U-QFz" userLabel="Controls Panel">
-                                <rect key="frame" x="0.0" y="619" width="414" height="189"/>
+                                <rect key="frame" x="0.0" y="658" width="414" height="150"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7p-gn-nAT" userLabel="Number of Jokes Control">
-                                        <rect key="frame" x="20" y="20" width="147.5" height="149"/>
+                                        <rect key="frame" x="20" y="33.5" width="147.5" height="83"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Get 99 jokes" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDX-3s-Y1h" customClass="CustomUILabel" customModule="Chuckle" customModuleProvider="target">
-                                                <rect key="frame" x="28" y="0.0" width="91.5" height="21.5"/>
+                                                <rect key="frame" x="17.5" y="0.0" width="113" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Bangers-Regular" family="Bangers" pointSize="20"/>
                                                 <color key="textColor" name="Colour4"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="PoE-gV-xcI">
-                                                <rect key="frame" x="-2" y="119" width="151.5" height="31"/>
+                                                <rect key="frame" x="-2" y="43" width="151.5" height="31"/>
                                                 <color key="tintColor" name="Colour2"/>
                                                 <connections>
                                                     <action selector="numberOfJokesSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="0a8-yH-lO0"/>
@@ -120,7 +120,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="PoE-gV-xcI" firstAttribute="bottom" secondItem="e7p-gn-nAT" secondAttribute="bottom" id="4M7-Vj-pI9"/>
+                                            <constraint firstItem="PoE-gV-xcI" firstAttribute="bottom" secondItem="e7p-gn-nAT" secondAttribute="bottom" constant="-10" id="4M7-Vj-pI9"/>
                                             <constraint firstItem="PoE-gV-xcI" firstAttribute="centerX" secondItem="e7p-gn-nAT" secondAttribute="centerX" id="FdY-te-LmK"/>
                                             <constraint firstItem="xDX-3s-Y1h" firstAttribute="top" secondItem="e7p-gn-nAT" secondAttribute="top" id="HbT-dk-xFt"/>
                                             <constraint firstItem="PoE-gV-xcI" firstAttribute="leading" secondItem="e7p-gn-nAT" secondAttribute="leading" id="UFR-W4-Onm"/>
@@ -129,16 +129,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZDy-rk-d81" userLabel="Explicit Jokes Control">
-                                        <rect key="frame" x="187.5" y="20" width="103.5" height="149"/>
+                                        <rect key="frame" x="187.5" y="33.5" width="103.5" height="83"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep it clean" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60q-ci-4Wb" customClass="CustomUILabel" customModule="Chuckle" customModuleProvider="target">
-                                                <rect key="frame" x="5.5" y="0.0" width="93" height="22.5"/>
+                                                <rect key="frame" x="-9.5" y="0.0" width="122.5" height="24.5"/>
                                                 <fontDescription key="fontDescription" name="Bangers-Regular" family="Bangers" pointSize="21"/>
                                                 <color key="textColor" name="Colour4"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7nk-cW-9FF">
-                                                <rect key="frame" x="27.5" y="118" width="51" height="31"/>
+                                                <rect key="frame" x="27.5" y="42" width="51" height="31"/>
                                                 <color key="onTintColor" name="Colour2"/>
                                                 <connections>
                                                     <action selector="explicitJokesSwitchIsChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="NNh-1c-fS4"/>
@@ -147,14 +147,14 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="7nk-cW-9FF" secondAttribute="bottom" id="Lls-BP-fuq"/>
+                                            <constraint firstAttribute="bottom" secondItem="7nk-cW-9FF" secondAttribute="bottom" constant="10" id="Lls-BP-fuq"/>
                                             <constraint firstItem="60q-ci-4Wb" firstAttribute="centerX" secondItem="ZDy-rk-d81" secondAttribute="centerX" id="Wrc-fN-j3Q"/>
                                             <constraint firstItem="60q-ci-4Wb" firstAttribute="top" secondItem="ZDy-rk-d81" secondAttribute="top" id="eqb-PH-410"/>
                                             <constraint firstItem="7nk-cW-9FF" firstAttribute="centerX" secondItem="ZDy-rk-d81" secondAttribute="centerX" id="wNO-sN-68r"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yS-bB-t7k">
-                                        <rect key="frame" x="311" y="53" width="83" height="83"/>
+                                        <rect key="frame" x="311" y="33.5" width="83" height="83"/>
                                         <color key="backgroundColor" name="Colour2"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="4yS-bB-t7k" secondAttribute="height" multiplier="1:1" id="ACx-Ok-xFG"/>
@@ -170,25 +170,26 @@
                                 </subviews>
                                 <color key="backgroundColor" name="Colour3"/>
                                 <constraints>
+                                    <constraint firstItem="ZDy-rk-d81" firstAttribute="bottom" secondItem="4yS-bB-t7k" secondAttribute="bottom" id="0lI-1f-g7u"/>
                                     <constraint firstAttribute="trailing" secondItem="4yS-bB-t7k" secondAttribute="trailing" constant="20" id="6SL-zA-ZWA"/>
                                     <constraint firstItem="4yS-bB-t7k" firstAttribute="leading" secondItem="ZDy-rk-d81" secondAttribute="trailing" constant="20" id="7oj-ZW-Zuc"/>
-                                    <constraint firstItem="e7p-gn-nAT" firstAttribute="top" secondItem="ix0-8U-QFz" secondAttribute="top" constant="20" id="GMe-yv-Tni"/>
                                     <constraint firstItem="ZDy-rk-d81" firstAttribute="leading" secondItem="e7p-gn-nAT" secondAttribute="trailing" constant="20" id="GNE-kz-CBj"/>
                                     <constraint firstItem="4yS-bB-t7k" firstAttribute="width" relation="greaterThanOrEqual" secondItem="ix0-8U-QFz" secondAttribute="width" multiplier="0.2" id="Q0X-OG-QMe"/>
                                     <constraint firstItem="4yS-bB-t7k" firstAttribute="centerY" secondItem="ix0-8U-QFz" secondAttribute="centerY" id="Rh7-S4-8Ga"/>
-                                    <constraint firstItem="ZDy-rk-d81" firstAttribute="top" secondItem="ix0-8U-QFz" secondAttribute="top" constant="20" id="ee8-pQ-cE7"/>
-                                    <constraint firstAttribute="bottom" secondItem="e7p-gn-nAT" secondAttribute="bottom" constant="20" id="gZc-aW-GBL"/>
-                                    <constraint firstAttribute="bottom" secondItem="ZDy-rk-d81" secondAttribute="bottom" constant="20" id="pGq-Db-S4S"/>
+                                    <constraint firstItem="e7p-gn-nAT" firstAttribute="bottom" secondItem="4yS-bB-t7k" secondAttribute="bottom" id="Tob-iK-Wd1"/>
+                                    <constraint firstItem="e7p-gn-nAT" firstAttribute="top" secondItem="4yS-bB-t7k" secondAttribute="top" id="a1F-Am-Xdz"/>
                                     <constraint firstItem="ZDy-rk-d81" firstAttribute="width" secondItem="ix0-8U-QFz" secondAttribute="width" multiplier="0.25" id="t25-BR-Vb7"/>
                                     <constraint firstItem="e7p-gn-nAT" firstAttribute="leading" secondItem="ix0-8U-QFz" secondAttribute="leading" constant="20" id="vg6-9r-rXo"/>
+                                    <constraint firstItem="ZDy-rk-d81" firstAttribute="top" secondItem="4yS-bB-t7k" secondAttribute="top" id="zcf-xb-2nb"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="Colour4"/>
                         <constraints>
-                            <constraint firstItem="Ic0-VE-rPS" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.8" id="4tP-aO-gPN"/>
+                            <constraint firstItem="Ic0-VE-rPS" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.85" id="4tP-aO-gPN"/>
                             <constraint firstItem="Ic0-VE-rPS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6z8-zC-ZKL"/>
+                            <constraint firstItem="ix0-8U-QFz" firstAttribute="top" secondItem="Ic0-VE-rPS" secondAttribute="bottom" id="UHf-4O-lAe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ix0-8U-QFz" secondAttribute="trailing" id="bKv-jW-zr7"/>
                             <constraint firstAttribute="bottom" secondItem="ix0-8U-QFz" secondAttribute="bottom" id="cHf-PT-QV2"/>
                             <constraint firstItem="Ic0-VE-rPS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="d9G-Br-DPv"/>
@@ -211,10 +212,10 @@
             </objects>
             <point key="canvasLocation" x="644.92753623188412" y="75.669642857142847"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Custom Navigation Controller-->
         <scene sceneID="vrg-Ic-LJI">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2er-J6-ceh" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2er-J6-ceh" customClass="CustomNavigationController" customModule="Chuckle" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="iDM-dq-SJH">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
