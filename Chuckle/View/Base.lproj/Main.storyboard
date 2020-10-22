@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2er-J6-ceh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -102,16 +102,16 @@
                                 <rect key="frame" x="0.0" y="619" width="414" height="189"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7p-gn-nAT" userLabel="Number of Jokes Control">
-                                        <rect key="frame" x="20" y="20" width="127" height="149"/>
+                                        <rect key="frame" x="20" y="20" width="147.5" height="149"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Get 99 jokes" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDX-3s-Y1h">
-                                                <rect key="frame" x="7" y="0.0" width="113" height="23.5"/>
+                                                <rect key="frame" x="17.5" y="0.0" width="113" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Bangers-Regular" family="Bangers" pointSize="20"/>
                                                 <color key="textColor" name="Colour4"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="PoE-gV-xcI">
-                                                <rect key="frame" x="-2" y="119" width="131" height="31"/>
+                                                <rect key="frame" x="-2" y="119" width="151.5" height="31"/>
                                                 <color key="tintColor" name="Colour2"/>
                                                 <connections>
                                                     <action selector="numberOfJokesSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="0a8-yH-lO0"/>
@@ -129,7 +129,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZDy-rk-d81" userLabel="Explicit Jokes Control">
-                                        <rect key="frame" x="167" y="20" width="103.5" height="149"/>
+                                        <rect key="frame" x="187.5" y="20" width="103.5" height="149"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep it clean" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60q-ci-4Wb">
                                                 <rect key="frame" x="-9.5" y="0.0" width="122.5" height="24.5"/>
@@ -154,7 +154,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yS-bB-t7k">
-                                        <rect key="frame" x="290.5" y="43" width="103.5" height="103.5"/>
+                                        <rect key="frame" x="311" y="53" width="83" height="83"/>
                                         <color key="backgroundColor" name="Colour2"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="4yS-bB-t7k" secondAttribute="height" multiplier="1:1" id="ACx-Ok-xFG"/>
@@ -174,7 +174,7 @@
                                     <constraint firstItem="4yS-bB-t7k" firstAttribute="leading" secondItem="ZDy-rk-d81" secondAttribute="trailing" constant="20" id="7oj-ZW-Zuc"/>
                                     <constraint firstItem="e7p-gn-nAT" firstAttribute="top" secondItem="ix0-8U-QFz" secondAttribute="top" constant="20" id="GMe-yv-Tni"/>
                                     <constraint firstItem="ZDy-rk-d81" firstAttribute="leading" secondItem="e7p-gn-nAT" secondAttribute="trailing" constant="20" id="GNE-kz-CBj"/>
-                                    <constraint firstItem="4yS-bB-t7k" firstAttribute="width" secondItem="ix0-8U-QFz" secondAttribute="width" multiplier="0.25" id="Q0X-OG-QMe"/>
+                                    <constraint firstItem="4yS-bB-t7k" firstAttribute="width" relation="greaterThanOrEqual" secondItem="ix0-8U-QFz" secondAttribute="width" multiplier="0.2" id="Q0X-OG-QMe"/>
                                     <constraint firstItem="4yS-bB-t7k" firstAttribute="centerY" secondItem="ix0-8U-QFz" secondAttribute="centerY" id="Rh7-S4-8Ga"/>
                                     <constraint firstItem="ZDy-rk-d81" firstAttribute="top" secondItem="ix0-8U-QFz" secondAttribute="top" constant="20" id="ee8-pQ-cE7"/>
                                     <constraint firstAttribute="bottom" secondItem="e7p-gn-nAT" secondAttribute="bottom" constant="20" id="gZc-aW-GBL"/>
@@ -237,7 +237,7 @@
     <resources>
         <image name="Image" width="1435" height="809"/>
         <namedColor name="Colour1">
-            <color red="0.086000002920627594" green="0.41200000047683716" blue="0.4779999852180481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.082352941176470587" green="0.41176470588235292" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Colour2">
             <color red="0.85882352941176465" green="0.39215686274509803" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

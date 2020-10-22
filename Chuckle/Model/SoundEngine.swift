@@ -8,7 +8,7 @@
 
 import AVFoundation
 
-class SoundEngine {
+final class SoundEngine {
   
   static let shared = SoundEngine()
   var soundPlayer: AVAudioPlayer!

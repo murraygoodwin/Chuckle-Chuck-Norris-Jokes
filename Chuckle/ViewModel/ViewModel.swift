@@ -11,7 +11,7 @@ protocol ViewModelDelegate: AnyObject {
   func didRetrieveUpdatedJokes()
 }
 
-class ViewModel {
+final class ViewModel {
   
   static let shared = ViewModel()
   

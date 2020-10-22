@@ -10,7 +10,7 @@ import Alamofire
 
 struct APIEngine {
   
-  func downloadJokesAsJSON(numberOfJokes: Int, excludeExplicitJokes: Bool) {
+  func downloadJokesAsJSON(numberOfJokes: Int, excludeExplicitJokes: Bool, completion: @escaping (Data?) -> Void) {
     
     guard numberOfJokes > 0 else {
       fatalError("Zero jokes were requested for download.")
@@ -23,6 +23,8 @@ struct APIEngine {
       urlString = urlString + "?exclude=[explicit]"
     }
     
+    var returnedData: Data?
+    
     AF.request(urlString).validate().responseJSON(completionHandler: { (response) in
       
       switch response.result {
@@ -34,13 +36,13 @@ struct APIEngine {
         }
         
       case .success:
-        let jsonParser = JSONParser()
         if let data = response.data {
-          jsonParser.parseJSON(data: data)
+          returnedData = data
         } else {
           fatalError("The HTTP request was successful, but no data was returned.")
         }
       }
+      completion(returnedData)
     })
   }
 }

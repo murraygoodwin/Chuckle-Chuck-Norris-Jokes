@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
   
   @IBOutlet weak var numberOfJokesSlider: UISlider!
   @IBOutlet weak var excludeExplicitJokesSwitch: UISwitch!
@@ -18,7 +18,7 @@ class ViewController: UIViewController {
   let viewModel = ViewModel.shared
   
   var excludeExplicitJokes = true
-  var numberOfJokesToRetrieve = 10
+  var numberOfJokesToRetrieve = 1
   
   let cardInsets: CGFloat = 60.0
   var cardWidth: CGFloat {
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     }
   
   // MARK: - UI Updates
-  func updateUI(for mode: ViewState) {
+  private func updateUI(for mode: ViewState) {
     switch mode {
     case .initialLoad:
       excludeExplicitJokes = excludeExplicitJokesSwitch.isOn ? true : false
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
     }
   }
   
-  func updateNumberOfJokesLabelText() {
+  private func updateNumberOfJokesLabelText() {
     numberOfJokesLabel.text = "Get \(numberOfJokesToRetrieve) joke"
     if numberOfJokesToRetrieve > 1 {
       numberOfJokesLabel.text = numberOfJokesLabel.text! + "s"
@@ -62,18 +62,26 @@ class ViewController: UIViewController {
   }
   
   // MARK: - User Actions
-  @IBAction func hitMeButtonTapped(_ sender: UIButton) {
+  @IBAction private func hitMeButtonTapped(_ sender: UIButton) {
      
     let apiEngine = APIEngine()
+
     apiEngine.downloadJokesAsJSON(numberOfJokes: numberOfJokesToRetrieve,
-                                  excludeExplicitJokes: excludeExplicitJokes)
+                                  excludeExplicitJokes: excludeExplicitJokes) { (data) in
+      let jsonParser = JSONParser()
+      if let data = data {
+      jsonParser.parseJSON(data: data)
+      } else {
+        fatalError("The HTTP request was successful, but no data was returned.")
+      }
+    }
   }
   
-  @IBAction func explicitJokesSwitchIsChanged(_ sender: UISwitch) {
+  @IBAction private func explicitJokesSwitchIsChanged(_ sender: UISwitch) {
     excludeExplicitJokes = excludeExplicitJokesSwitch.isOn ? true : false
   }
   
-  @IBAction func numberOfJokesSliderChanged(_ sender: UISlider) {
+  @IBAction private func numberOfJokesSliderChanged(_ sender: UISlider) {
     numberOfJokesToRetrieve = Int(sender.value)
     updateNumberOfJokesLabelText()
   }
