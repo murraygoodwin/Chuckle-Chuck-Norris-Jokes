@@ -25,24 +25,26 @@ struct APIEngine {
     
     var returnedData: Data?
     
-    AF.request(urlString).validate().responseJSON(completionHandler: { (response) in
+    AF.request(urlString).validate().responseJSON { (response) in
       
       switch response.result {
       case .failure:
         if let error = response.error {
           
-          //TODO: Improve handling of this error (e.g. more user-friendly error messaging).
-          fatalError("\(error.localizedDescription)")
+          //FIXME: Ideally I would include better handling of these errors, but they seem very low risk.
+          fatalError("\(error)")
         }
         
       case .success:
         if let data = response.data {
           returnedData = data
         } else {
+          
+          //FIXME: Ideally I would include better handling of these errors, but they seem very low risk.
           fatalError("The HTTP request was successful, but no data was returned.")
         }
       }
       completion(returnedData)
-    })
+    }
   }
 }

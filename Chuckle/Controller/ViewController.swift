@@ -14,11 +14,12 @@ final class ViewController: UIViewController {
   @IBOutlet weak var numberOfJokesLabel: UILabel!
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var mainBody: UIView!
+  @IBOutlet weak var controlsPanel: UIView!
   
   let viewModel = ViewModel.shared
   
   var excludeExplicitJokes = true
-  var numberOfJokesToRetrieve = 1
+  var numberOfJokesToRetrieve = 3
   
   let cardInsets: CGFloat = 60.0
   var cardWidth: CGFloat {
@@ -37,7 +38,7 @@ final class ViewController: UIViewController {
     collectionView.dataSource = self
     collectionView.delegate = self
     updateUI(for: .initialLoad)
-    }
+  }
   
   // MARK: - UI Updates
   private func updateUI(for mode: ViewState) {
@@ -47,7 +48,21 @@ final class ViewController: UIViewController {
       numberOfJokesSlider.value = Float(numberOfJokesToRetrieve)
       updateNumberOfJokesLabelText()
       
-      navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Bangers-Regular", size: 34)!, NSAttributedString.Key.foregroundColor: UIColor(named: "Colour4") ?? .white]
+      if let navigationBar = self.navigationController?.navigationBar {
+        let firstFrame = CGRect(x: 0, y: 0, width: navigationBar.frame.width, height: navigationBar.frame.height)
+        
+        let titleLabel = CustomUILabel(frame: firstFrame)
+        titleLabel.text = "CHUCKLE"
+        titleLabel.font = UIFont(name: "Bangers-Regular", size: 34)!
+        titleLabel.textColor = UIColor(named: "Colour4") ?? .white
+        titleLabel.textAlignment = .center
+        navigationBar.addSubview(titleLabel)
+      }
+            
+      controlsPanel.layer.shadowColor = UIColor.black.cgColor
+      controlsPanel.layer.shadowOpacity = 1
+      controlsPanel.layer.shadowOffset = .zero
+      controlsPanel.layer.shadowRadius = 10
       
     case .afterUpdate:
       collectionView.reloadData()
@@ -63,9 +78,9 @@ final class ViewController: UIViewController {
   
   // MARK: - User Actions
   @IBAction private func hitMeButtonTapped(_ sender: UIButton) {
-     
+    
     let apiEngine = APIEngine()
-
+    
     apiEngine.downloadJokesAsJSON(numberOfJokes: numberOfJokesToRetrieve,
                                   excludeExplicitJokes: excludeExplicitJokes) { (data) in
       let jsonParser = JSONParser()
@@ -111,7 +126,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
                       cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "jokeCell", for: indexPath) as! JokeCollectionViewCell
-        
+    
     if viewModel.jokesList != nil {
       cell.jokeLabel.text = viewModel.jokesList![indexPath.row]
     } else {
@@ -119,9 +134,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
     }
     
     cell.layer.cornerRadius = 20.0
-    cell.layer.shadowOffset = CGSize(width: 2.0, height: 4.0)
-    cell.layer.shadowRadius = 2.0
-    cell.layer.shadowColor = UIColor.gray.cgColor
     
     return cell
   }
@@ -133,7 +145,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-
-      return UIEdgeInsets(top: 0, left: cardInsets / 2, bottom: 0, right: cardInsets / 2)
+    
+    return UIEdgeInsets(top: 0, left: cardInsets / 2, bottom: 0, right: cardInsets / 2)
   }
 }

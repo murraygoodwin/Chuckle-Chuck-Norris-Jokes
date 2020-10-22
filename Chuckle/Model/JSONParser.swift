@@ -24,6 +24,7 @@ struct JSONParser {
     }
     
     guard jokesList.count > 0 else {
+      //FIXME: Ideally I would include better handling of these errors, but they seem very low risk.
       fatalError("No valid joke text was found in the data returned.")
     }
     
