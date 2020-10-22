@@ -15,7 +15,7 @@ final class ViewController: UIViewController {
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var mainBody: UIView!
   @IBOutlet weak var controlsPanel: UIView!
-  
+
   let viewModel = ViewModel.shared
   
   var excludeExplicitJokes = true
@@ -84,6 +84,7 @@ final class ViewController: UIViewController {
     
     apiEngine.downloadJokesAsJSON(numberOfJokes: numberOfJokesToRetrieve,
                                   excludeExplicitJokes: excludeExplicitJokes) { (data) in
+      
       let jsonParser = JSONParser()
       if let data = data {
         self.viewModel.jokesList = jsonParser.parseJSON(data: data)

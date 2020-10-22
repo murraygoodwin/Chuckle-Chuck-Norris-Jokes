@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0A4EBE59CB2544D45B12A1B5 /* Pods_ChuckleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F2ABE4F38AFFF2B6370AEB /* Pods_ChuckleTests.framework */; };
 		404E5FF44780F97225A36C33 /* Pods_Chuckle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA9C840FE24C4A62C251721 /* Pods_Chuckle.framework */; };
-		4852ED795C2A38D7036AF0B4 /* Pods_Chuckle_ChuckleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6498D38FDC429BBD3ADBF3 /* Pods_Chuckle_ChuckleUITests.framework */; };
 		61429088253F28B7000FD9D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61429087253F28B7000FD9D5 /* AppDelegate.swift */; };
 		6142908A253F28B7000FD9D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61429089253F28B7000FD9D5 /* SceneDelegate.swift */; };
 		6142908C253F28B7000FD9D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6142908B253F28B7000FD9D5 /* ViewController.swift */; };
@@ -39,13 +38,6 @@
 			remoteGlobalIDString = 61429083253F28B7000FD9D5;
 			remoteInfo = Chuckle;
 		};
-		614290A6253F28BE000FD9D5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6142907C253F28B7000FD9D5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 61429083253F28B7000FD9D5;
-			remoteInfo = Chuckle;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -62,7 +54,6 @@
 		6142909A253F28BE000FD9D5 /* ChuckleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChuckleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6142909E253F28BE000FD9D5 /* APIEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEngineTests.swift; sourceTree = "<group>"; };
 		614290A0253F28BE000FD9D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		614290A5253F28BE000FD9D5 /* ChuckleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChuckleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		614290CA253F29E3000FD9D5 /* APIEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEngine.swift; sourceTree = "<group>"; };
 		614290E6253F2F85000FD9D5 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		6142910A253F3619000FD9D5 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -101,14 +92,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		614290A2253F28BE000FD9D5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4852ED795C2A38D7036AF0B4 /* Pods_Chuckle_ChuckleUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -124,9 +107,9 @@
 		612022D525403EC300DCCE15 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				619DB2242541947D0007DEE3 /* CustomUILabel.swift */,
-				6142908B253F28B7000FD9D5 /* ViewController.swift */,
 				619DB2312541A1770007DEE3 /* CustomNavigationController.swift */,
+				6142908B253F28B7000FD9D5 /* ViewController.swift */,
+				619DB2242541947D0007DEE3 /* CustomUILabel.swift */,
 				61F5ECEC25405C80002D8CED /* JokeCollectionViewCell.swift */,
 			);
 			path = Controller;
@@ -150,7 +133,6 @@
 			children = (
 				61429084253F28B7000FD9D5 /* Chuckle.app */,
 				6142909A253F28BE000FD9D5 /* ChuckleTests.xctest */,
-				614290A5253F28BE000FD9D5 /* ChuckleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -282,26 +264,6 @@
 			productReference = 6142909A253F28BE000FD9D5 /* ChuckleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		614290A4253F28BE000FD9D5 /* ChuckleUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 614290B4253F28BE000FD9D5 /* Build configuration list for PBXNativeTarget "ChuckleUITests" */;
-			buildPhases = (
-				1E0A1C9572C6578905D2C9AB /* [CP] Check Pods Manifest.lock */,
-				614290A1253F28BE000FD9D5 /* Sources */,
-				614290A2253F28BE000FD9D5 /* Frameworks */,
-				614290A3253F28BE000FD9D5 /* Resources */,
-				154678AD1D5B2DEAE79AC25E /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				614290A7253F28BE000FD9D5 /* PBXTargetDependency */,
-			);
-			name = ChuckleUITests;
-			productName = ChuckleUITests;
-			productReference = 614290A5253F28BE000FD9D5 /* ChuckleUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -315,10 +277,6 @@
 						CreatedOnToolsVersion = 12.0.1;
 					};
 					61429099253F28BE000FD9D5 = {
-						CreatedOnToolsVersion = 12.0.1;
-						TestTargetID = 61429083253F28B7000FD9D5;
-					};
-					614290A4253F28BE000FD9D5 = {
 						CreatedOnToolsVersion = 12.0.1;
 						TestTargetID = 61429083253F28B7000FD9D5;
 					};
@@ -342,7 +300,6 @@
 			targets = (
 				61429083253F28B7000FD9D5 /* Chuckle */,
 				61429099253F28BE000FD9D5 /* ChuckleTests */,
-				614290A4253F28BE000FD9D5 /* ChuckleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -368,55 +325,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		614290A3253F28BE000FD9D5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		154678AD1D5B2DEAE79AC25E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Chuckle-ChuckleUITests/Pods-Chuckle-ChuckleUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Chuckle-ChuckleUITests/Pods-Chuckle-ChuckleUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Chuckle-ChuckleUITests/Pods-Chuckle-ChuckleUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1E0A1C9572C6578905D2C9AB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Chuckle-ChuckleUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4132B2F646F093F4128444B2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -507,13 +418,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		614290A1253F28BE000FD9D5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -521,11 +425,6 @@
 			isa = PBXTargetDependency;
 			target = 61429083253F28B7000FD9D5 /* Chuckle */;
 			targetProxy = 6142909B253F28BE000FD9D5 /* PBXContainerItemProxy */;
-		};
-		614290A7253F28BE000FD9D5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 61429083253F28B7000FD9D5 /* Chuckle */;
-			targetProxy = 614290A6253F28BE000FD9D5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -757,48 +656,6 @@
 			};
 			name = Release;
 		};
-		614290B5253F28BE000FD9D5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA70466218B3BEF9A2C66736 /* Pods-Chuckle-ChuckleUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PPKWWF5N6S;
-				INFOPLIST_FILE = ChuckleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.murraygoodwin.ChuckleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Chuckle;
-			};
-			name = Debug;
-		};
-		614290B6253F28BE000FD9D5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 35294F2B132002F28A7D8EBC /* Pods-Chuckle-ChuckleUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PPKWWF5N6S;
-				INFOPLIST_FILE = ChuckleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.murraygoodwin.ChuckleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Chuckle;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -825,15 +682,6 @@
 			buildConfigurations = (
 				614290B2253F28BE000FD9D5 /* Debug */,
 				614290B3253F28BE000FD9D5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		614290B4253F28BE000FD9D5 /* Build configuration list for PBXNativeTarget "ChuckleUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				614290B5253F28BE000FD9D5 /* Debug */,
-				614290B6253F28BE000FD9D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -15,8 +15,7 @@ final class ViewModel {
   
   static let shared = ViewModel()
   
-  //TODO: should this be a weak var ?
-  var delegate: ViewModelDelegate?
+  weak var delegate: ViewModelDelegate?
   
   var jokesList: [String]? {
     didSet {
