@@ -104,7 +104,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7p-gn-nAT" userLabel="Number of Jokes Control">
                                         <rect key="frame" x="20" y="20" width="147.5" height="149"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Get 99 jokes" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDX-3s-Y1h">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Get 99 jokes" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDX-3s-Y1h" customClass="CustomUILabel" customModule="Chuckle" customModuleProvider="target">
                                                 <rect key="frame" x="17.5" y="0.0" width="113" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Bangers-Regular" family="Bangers" pointSize="20"/>
                                                 <color key="textColor" name="Colour4"/>
@@ -131,7 +131,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZDy-rk-d81" userLabel="Explicit Jokes Control">
                                         <rect key="frame" x="187.5" y="20" width="103.5" height="149"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep it clean" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60q-ci-4Wb">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep it clean" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60q-ci-4Wb" customClass="CustomUILabel" customModule="Chuckle" customModuleProvider="target">
                                                 <rect key="frame" x="-9.5" y="0.0" width="122.5" height="24.5"/>
                                                 <fontDescription key="fontDescription" name="Bangers-Regular" family="Bangers" pointSize="21"/>
                                                 <color key="textColor" name="Colour4"/>
