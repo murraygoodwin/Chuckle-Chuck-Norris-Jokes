@@ -83,14 +83,13 @@ final class ViewController: UIViewController {
     let apiEngine = APIEngine()
     
     apiEngine.downloadJokesAsJSON(numberOfJokes: numberOfJokesToRetrieve,
-                                  excludeExplicitJokes: excludeExplicitJokes) { (data) in
+                                  excludeExplicitJokes: excludeExplicitJokes) { [weak self] (data) in
+      
+      guard let self = self, let data = data else { return }
       
       let jsonParser = JSONParser()
-      if let data = data {
-        self.viewModel.jokesList = jsonParser.parseJSON(data: data)
-      } else {
-        fatalError("The HTTP request was successful, but no data was returned.")
-      }
+      self.viewModel.jokesList = jsonParser.parseJSON(data: data)
+
     }
   }
   
