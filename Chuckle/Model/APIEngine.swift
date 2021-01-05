@@ -31,7 +31,7 @@ struct APIEngine {
       case .failure:
         if let error = response.error {
           
-          //FIXME: Ideally I would include better handling of these errors, but they seem very low risk.
+          //FIXME: Ideally I would include better handling of these errors.
           fatalError("\(error)")
         }
         
@@ -40,7 +40,7 @@ struct APIEngine {
           returnedData = data
         } else {
           
-          //FIXME: Ideally I would include better handling of these errors, but they seem very low risk.
+          //FIXME: Ideally I would include better handling of these errors.
           fatalError("The HTTP request was successful, but no data was returned.")
         }
       }

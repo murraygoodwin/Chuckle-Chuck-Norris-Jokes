@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     } catch {
         print("Failed to set audio session category.")
     }
-    
     return true
   }
 

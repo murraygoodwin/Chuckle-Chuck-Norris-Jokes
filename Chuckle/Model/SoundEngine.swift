@@ -10,13 +10,17 @@ import AVFoundation
 
 final class SoundEngine {
   
-  static let shared = SoundEngine()
   var soundPlayer: AVAudioPlayer!
   
   func playSound(sound: String) {
     
     if let url = Bundle.main.url(forResource: sound, withExtension: "m4a") {
-      soundPlayer = try? AVAudioPlayer(contentsOf: url)
+      
+      do {
+        soundPlayer = try AVAudioPlayer(contentsOf: url)
+      } catch {
+        fatalError("AVAudioPlayer error.")
+      }
       soundPlayer.play()
     }
   }

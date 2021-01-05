@@ -16,7 +16,8 @@ final class ViewController: UIViewController {
   @IBOutlet weak var mainBody: UIView!
   @IBOutlet weak var controlsPanel: UIView!
 
-  let viewModel = ViewModel.shared
+  let soundEngine = SoundEngine()
+  let viewModel = ViewModel()
   
   var excludeExplicitJokes = true
   var numberOfJokesToRetrieve = 10
@@ -42,31 +43,35 @@ final class ViewController: UIViewController {
   
   // MARK: - UI Updates
   private func updateUI(for mode: ViewState) {
-    switch mode {
-    case .initialLoad:
-      excludeExplicitJokes = excludeExplicitJokesSwitch.isOn ? true : false
-      numberOfJokesSlider.value = Float(numberOfJokesToRetrieve)
-      updateNumberOfJokesLabelText()
+    DispatchQueue.main.async { [weak self] in
+      guard let self = self else { return }
       
-      if let navigationBar = self.navigationController?.navigationBar {
-        let firstFrame = CGRect(x: 0, y: 0, width: navigationBar.frame.width, height: navigationBar.frame.height)
+      switch mode {
+      case .initialLoad:
+        self.excludeExplicitJokes = self.excludeExplicitJokesSwitch.isOn ? true : false
+        self.numberOfJokesSlider.value = Float(self.numberOfJokesToRetrieve)
+        self.updateNumberOfJokesLabelText()
         
-        let titleLabel = CustomUILabel(frame: firstFrame)
-        titleLabel.text = "CHUCKLE"
-        titleLabel.font = UIFont(name: "Bangers-Regular", size: 34)!
-        titleLabel.textColor = UIColor(named: "Colour4") ?? .white
-        titleLabel.textAlignment = .center
-        navigationBar.addSubview(titleLabel)
+        if let navigationBar = self.navigationController?.navigationBar {
+          let firstFrame = CGRect(x: 0, y: 0, width: navigationBar.frame.width, height: navigationBar.frame.height)
+          
+          let titleLabel = CustomUILabel(frame: firstFrame)
+          titleLabel.text = "CHUCKLE"
+          titleLabel.font = UIFont(name: "Bangers-Regular", size: 34)!
+          titleLabel.textColor = UIColor(named: "Colour4") ?? .white
+          titleLabel.textAlignment = .center
+          navigationBar.addSubview(titleLabel)
+        }
+        
+        self.controlsPanel.layer.shadowColor = UIColor.black.cgColor
+        self.controlsPanel.layer.shadowOpacity = 1
+        self.controlsPanel.layer.shadowOffset = .zero
+        self.controlsPanel.layer.shadowRadius = 10
+        
+      case .afterUpdate:
+        self.collectionView.reloadData()
+        self.collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .centeredHorizontally, animated: true)
       }
-            
-      controlsPanel.layer.shadowColor = UIColor.black.cgColor
-      controlsPanel.layer.shadowOpacity = 1
-      controlsPanel.layer.shadowOffset = .zero
-      controlsPanel.layer.shadowRadius = 10
-      
-    case .afterUpdate:
-      collectionView.reloadData()
-      collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .centeredHorizontally, animated: true)
     }
   }
   
@@ -89,7 +94,6 @@ final class ViewController: UIViewController {
       
       let jsonParser = JSONParser()
       self.viewModel.jokesList = jsonParser.parseJSON(data: data)
-
     }
   }
   
@@ -106,7 +110,7 @@ final class ViewController: UIViewController {
 // MARK: - New Jokes Received
 extension ViewController: ViewModelDelegate {
   func didRetrieveUpdatedJokes() {
-    SoundEngine.shared.playSound(sound: "Chop")
+    soundEngine.playSound(sound: "Chop")
     updateUI(for: .afterUpdate)
   }
 }
@@ -134,7 +138,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
       cell.jokeLabel.text = "Chuck Norris is always ready..."
     }
     
-    //TODO: I'd like to incorporate dynamic resizing for the font for extra long jokes. For now, I've just set the font size to be quite small, but I would prefer them to all scale individually.
+    // TODO: I'd like to incorporate dynamic resizing for the font for extra long jokes. For now, I've just set the font size to be quite small, but I would prefer them to all scale individually.
     
     cell.layer.cornerRadius = 20.0
     

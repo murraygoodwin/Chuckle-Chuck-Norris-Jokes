@@ -11,5 +11,4 @@ final class JokeCollectionViewCell: UICollectionViewCell {
     
   @IBOutlet weak var jokeCard: UIView!
   @IBOutlet weak var jokeLabel: UILabel!
-  
 }

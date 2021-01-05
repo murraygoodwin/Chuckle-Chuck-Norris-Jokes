@@ -13,8 +13,6 @@ protocol ViewModelDelegate: AnyObject {
 
 final class ViewModel {
   
-  static let shared = ViewModel()
-  
   weak var delegate: ViewModelDelegate?
   
   var jokesList: [String]? {
